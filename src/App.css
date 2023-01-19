@@ -1,38 +1,539 @@
-.App {
-  text-align: center;
+:root {
+  --main-color: #62b1a5;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  padding: 0px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 0px;
+  background: #fcfcfc;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  background: white;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  box-shadow: 0px 0px 10px #00000011;
+  border-bottom: 2px solid #f0f0f0;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.aside {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.share-on-social-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+.Sharable::after {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  content: "";
+  top: 120%;
+  background: rgba(0, 0, 0, 0.205);
+  border-radius: 100%;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.703);
+  left: 5%;
+  height: 5px;
+  opacity: 0%;
+  width: 90%;
+}
+.Sharable {
+  position: relative;
+  width: 40px;
+  margin: 10px;
+  background: rgb(200, 200, 200);
+  height: 40px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 100%;
+}
+.Sharable:hover {
+  transform: translateY(-3px);
+}
+.Sharable:hover:after {
+  opacity: 20%;
+}
+.sharable-cont {
+  padding-top: 20px;
+  border-top: 1px solid #e8e8e8;
+  display: flex;
+}
+.share-on-social-box p {
+  font-size: 12px;
+  display: flex;
+  justify-content: space-evenly;
+  color: #919191;
+  text-transform: capitalize;
+}
+.share-on-social-box svg {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.nav-front {
+  display: flex;
+  justify-content: space-evenly;
+  width: 70%;
+  max-width: 800px;
+  align-items: center;
+}
+.link-container {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  max-width: 700px;
+  justify-content: flex-end;
+}
+.link-cont {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 60%;
+}
+.logo {
+  padding-right: 50px;
+  padding-left: 50px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+
+  border-right: 2px solid #f0f0f0;
+}
+.sign-in-btn {
+  padding: 10px;
+  border-radius: 4px;
+  width: 120px;
+  font-weight: 800;
+  border: none;
   color: white;
+  background: white;
+
+  border: 2px solid #f0f0f0;
+
+  color: var(--main-color);
+}
+.link-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border: 2px solid #f0f0f0;
+  width: 40px;
+  height: 40px;
+
+  border-radius: 8px;
+}
+.link {
+  display: flex;
+  box-shadow: inset 0px 0px 10px #62b1a538;
+
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+
+  padding-left: 20px;
+  padding-right: 20px;
+  text-decoration: none;
+  color: #919191;
+
+  border-radius: 4px;
+}
+.supported-img {
+  color: #919191;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 10px;
+  opacity: 40%;
+}
+.shop-link {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  padding: 10px;
+
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100px;
+
+  color: #919191;
+  box-shadow: inset 0px 0px 10px #62b1a538;
+
+  border-radius: 4px;
+}
+.puzzle-gen-cont {
+  width: 100%;
+  min-height: 130vh;
+  margin-top: 50px;
+
+  transition: all 0.5s;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-evenly;
+}
+.puzzle-generator-box {
+  width: 55%;
+  max-width: 800px;
+  overflow: hidden;
+
+  min-width: 750px;
+  display: flex;
+  flex-direction: column;
+
+  background: white;
+  min-height: 500px;
+  border: 3px solid #eaeaea;
+
+  border-radius: 5px;
+}
+.puzzle-upload-box {
+  background: white;
+  overflow: hidden;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+  min-width: 400px;
+  max-width: 400px;
+  border-radius: 10px;
+  border: 3px solid #eaeaea;
+}
+.box-top {
+  padding: 25px;
+
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+
+  background-image: linear-gradient(65deg, #f0f0f0 40%, #f5f5f5 100%);
+  background-blend-mode: normal, lighten, soft-light;
+  color: #919191;
+}
+.box-top span {
+  font-size: 14px;
+}
+.puzzle-piece-counter {
+  background: white;
+
+  border: 2px solid #f0f0f0;
+  padding: 14px;
+  border-radius: 10px;
+  color: var(--main-color);
+}
+.box-top h1 {
+  margin: 0px;
+  flex: 1;
+  color: #919191;
+
+  font-size: 22px;
+}
+.upload-drop-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 35px;
+  margin: 30px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  border: 2px dashed #62b1a5;
+  border-radius: 25px;
+}
+.Puzzle-cont {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  min-height: 400px;
+  width: 100%;
+}
+.Puzzle {
+  margin-top: 20px;
+  width: 92%;
+  background: whitesmoke;
+  border-radius: 10px;
+  height: 400px;
+}
+.btn-cont {
+  margin-top: 20px;
+
+  align-items: center;
+  display: flex;
+  padding-top: 20px;
+  border-top: 1px solid #e8e8e8;
+  width: 90%;
+  margin-bottom: 20px;
+  color: var(--main-color);
+}
+.btn-cont button {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 15px;
+  width: 45%;
+  align-items: center;
+  border-radius: 10px;
+  background: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border: 2px solid #e8e8e8;
+}
+.add {
+  color: var(--main-color);
+}
+.or {
+  color: #919191;
+  text-align: center;
+  width: 80px;
+  font-size: 12px;
+  font-weight: bold;
+}
+.save {
+  color: #919191;
+  max-width: 180px;
+}
+.upload-drop-zone h3 {
+  color: #919191;
+  margin: 0px;
+
+  margin-top: 20px;
+}
+.upload-drop-zone svg {
+  width: 60px;
+}
+.upload-drop-zone p {
+  color: var(--main-color);
+  font-size: 14px;
+  text-decoration: underline;
+}
+.gen-puzzle-btn {
+  padding: 15px;
+  border-radius: 10px;
+  background: var(--main-color);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  margin: 20px;
+}
+.upload-mobile-file-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  display: none;
+  padding: 15px;
+  border-radius: 10px;
+  background: white;
+  color: #919191;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border: 3px solid #f0f0f0;
+  cursor: pointer;
+  margin: 20px;
+
+  margin-bottom: 0px;
+}
+.upload-mobile-file-btn svg {
+  width: 20px;
+
+  height: 20px;
+}
+.Ham-Btn {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #f9f9f9;
+  box-shadow: inset 0px 0px 10px #62b1a538;
+}
+.Ham-Btn:hover {
+  opacity: 50%;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  border: 1.5px solid #f0f0f0;
+
+  border-radius: 8px;
+  margin-top: 5px;
+  z-index: 1;
+  top: 100%;
+  overflow: hidden;
+  transition: all 0.3s;
+  left: 0px;
+}
+#form-file-upload {
+  height: 12rem;
+  width: 28rem;
+  max-width: 100%;
+  text-align: center;
+  position: relative;
 }
 
-.App-link {
-  color: #61dafb;
+#input-file-upload {
+  display: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+#label-file-upload {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border-width: 2px;
+}
+
+#label-file-upload.drag-active {
+  background-color: #ffffff;
+}
+
+.upload-button {
+  cursor: pointer;
+  padding: 0.25rem;
+  font-size: 1rem;
+  border: none;
+  font-family: "Oswald", sans-serif;
+  background-color: transparent;
+}
+
+.upload-button:hover {
+  text-decoration-line: underline;
+}
+
+#drag-file-element {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+#input-file-upload {
+  display: none;
+}
+.upload-button {
+  border: none;
+  color: #62b1a5;
+  padding: 10px;
+  text-decoration: underline;
+  background: transparent;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.spacer {
+  position: absolute;
+  top: 100%;
+  height: 10px;
+  width: 100%;
+}
+.dropdown-content a {
+  float: none;
+  color: #919191;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.1s;
+
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  color: var(--main-color);
+  box-shadow: inset 0px 0px 5px #62b1a553;
+}
+
+.link:hover {
+  transition: all 0.3s;
+  color: var(--main-color);
+}
+.shop-link:hover {
+  transition: all 0.3s;
+  color: var(--main-color);
+}
+
+.shop-link:hover .dropdown-content {
+  display: block;
+}
+.mobile {
+  display: none;
+}
+@media only screen and (max-width: 1200px) {
+  .upload-drop-zone {
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+  .nav-bar {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .web {
+    display: none;
+  }
+  .mobile {
+    display: flex;
+  }
+  .Ham-Btn {
+    position: absolute;
+    right: 30px;
+    display: flex;
+  }
+  .link-cont {
+    display: none;
+  }
+  .link {
+    display: none;
+  }
+  .shop-link {
+    display: none;
+  }
+
+  .logo {
+    border: none;
+  }
+  .upload-mobile-file-btn {
+    display: flex;
+  }
+  .puzzle-gen-cont {
+    width: 100%;
+    flex-wrap: wrap-reverse;
+    overflow: hidden;
+    min-height: 50vh;
+    margin-top: 0px;
+  }
+  .btn-cont button {
+    font-size: 13px;
+  }
+  .gen-puzzle-btn {
+    font-size: 13px;
+    padding: 10px;
+  }
+  .puzzle-upload-box {
+    width: 100%;
+    max-width: 100%;
+    min-height: 40px;
+  }
+  .puzzle-generator-box {
+    min-width: 100%;
+  }
+  .aside {
+    width: 100%;
   }
 }
