@@ -82,23 +82,23 @@ export default function Navbar() {
             <path
               d="M1 6H19"
               stroke="#25B39E"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M1 1H19"
               stroke="#25B39E"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M1 12H19"
               stroke="#25B39E"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         </button>
@@ -117,13 +117,13 @@ export default function Navbar() {
             <path
               d="M9 1L5 5L1 1"
               stroke="#25B39E"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
           <div className="spacer"></div>
-          <div class="dropdown-content">
+          <div className="dropdown-content">
             <a href="/">All Puzzles</a>
             <a href="/">Community Submitted</a>
             <a href="/">Holiday Puzzles</a>
@@ -146,23 +146,23 @@ export default function Navbar() {
               <path
                 d="M13.4444 15H2.55556C2.143 15 1.74733 14.8361 1.45561 14.5444C1.16389 14.2527 1 13.857 1 13.4444V2.55556C1 2.143 1.16389 1.74733 1.45561 1.45561C1.74733 1.16389 2.143 1 2.55556 1H11.1111L15 4.88889V13.4444C15 13.857 14.8361 14.2527 14.5444 14.5444C14.2527 14.8361 13.857 15 13.4444 15Z"
                 stroke="#919191"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M11.8889 15.0001V8.77783H4.11108V15.0001"
                 stroke="#919191"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M4.11108 1V4.88889H10.3333"
                 stroke="#919191"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </Link>
@@ -177,23 +177,23 @@ export default function Navbar() {
               <path
                 d="M6.45452 15.3181C6.83108 15.3181 7.13634 15.0128 7.13634 14.6363C7.13634 14.2597 6.83108 13.9545 6.45452 13.9545C6.07797 13.9545 5.77271 14.2597 5.77271 14.6363C5.77271 15.0128 6.07797 15.3181 6.45452 15.3181Z"
                 stroke="#25B39E"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M13.9545 15.3181C14.3311 15.3181 14.6363 15.0128 14.6363 14.6363C14.6363 14.2597 14.3311 13.9545 13.9545 13.9545C13.578 13.9545 13.2727 14.2597 13.2727 14.6363C13.2727 15.0128 13.578 15.3181 13.9545 15.3181Z"
                 stroke="#25B39E"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M1 1H3.72727L5.55455 10.1295C5.61689 10.4435 5.78766 10.7254 6.03696 10.9261C6.28626 11.1268 6.5982 11.2334 6.91818 11.2273H13.5455C13.8654 11.2334 14.1774 11.1268 14.4267 10.9261C14.676 10.7254 14.8467 10.4435 14.9091 10.1295L16 4.40909H4.40909"
                 stroke="#25B39E"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </Link>

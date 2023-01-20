@@ -3,7 +3,9 @@ import ShareOnSocial from "../Components/ShareOnSocial/ShareOnSocial";
 
 export default function PuzzleGen() {
   // drag state
-  const [dragActive, setDragActive] = React.useState(false);
+  const [dragActive, setDragActive] = useState(false);
+  const [Data, setData] = useState([]);
+
   // ref
   const inputRef = React.useRef(null);
 
@@ -24,15 +26,17 @@ export default function PuzzleGen() {
     e.stopPropagation();
     setDragActive(false);
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-      // handleFiles(e.dataTransfer.files);
+      setData((prev) => (prev = e.dataTransfer.files));
     }
   };
+  const [image, setImage] = useState(null);
 
   // triggers when file is selected with click
   const handleChange = function (e) {
     e.preventDefault();
+    setData((prev) => [...prev, e.target.files[0]]);
     if (e.target.files && e.target.files[0]) {
-      // handleFiles(e.target.files);
+      setImage(URL.createObjectURL(e.target.files[0]));
     }
   };
 
@@ -46,10 +50,18 @@ export default function PuzzleGen() {
       <div className="aside">
         <div className="puzzle-upload-box">
           <div className="box-top">
+            {" "}
             <h1>Upload Image</h1>
             <span>40 Images left to upload</span>
           </div>{" "}
-          <div className="upload-drop-zone">
+          <div className="files-uploaded">
+            {Data.map((img) => {
+              return <div className="file-que">{img.name}</div>;
+            })}
+          </div>
+          <div
+            className={`upload-drop-zone ${Data.length > 3 && "Disabled"}  `}
+          >
             {" "}
             <form
               id="form-file-upload"
@@ -66,41 +78,50 @@ export default function PuzzleGen() {
                 <path
                   d="M79.25 54.5V71C79.25 73.188 78.3808 75.2865 76.8336 76.8336C75.2865 78.3808 73.188 79.25 71 79.25H13.25C11.062 79.25 8.96354 78.3808 7.41637 76.8336C5.86919 75.2865 5 73.188 5 71V54.5"
                   stroke="#919191"
-                  stroke-width="9"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="9"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <path
                   d="M62.75 25.625L42.125 5L21.5 25.625"
                   stroke="#919191"
-                  stroke-width="9"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="9"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <path
                   d="M42.125 5V54.5"
                   stroke="#919191"
-                  stroke-width="9"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="9"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
-
-              <input
-                ref={inputRef}
-                type="file"
-                id="input-file-upload"
-                multiple={true}
-                onChange={handleChange}
-              />
+              <div>
+                {Data.length > 3 ? (
+                  <></>
+                ) : (
+                  <>
+                    {" "}
+                    <input
+                      ref={inputRef}
+                      type="file"
+                      id="input-file-upload"
+                      multiple={true}
+                      onChange={handleChange}
+                    />
+                  </>
+                )}
+              </div>
               <label
                 id="label-file-upload"
                 htmlFor="input-file-upload"
                 className={dragActive ? "drag-active" : ""}
               >
-                <h3>Drag and drop your file here </h3>
-                <button className="upload-button" onClick={onButtonClick}>
-                  or Browse from file system
+                <h3 className="web">Drag and drop your file here </h3>
+
+                <button className="upload-button " onClick={onButtonClick}>
+                  Browse from file system
                 </button>
               </label>
               {dragActive && (
@@ -111,41 +132,14 @@ export default function PuzzleGen() {
                   onDragOver={handleDrag}
                   onDrop={handleDrop}
                 ></div>
-              )}
+              )}{" "}
             </form>
-            <button className="upload-mobile-file-btn">
-              Upload File From Device{" "}
-              <svg
-                width="84"
-                height="84"
-                viewBox="0 0 84 84"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M79.25 54.5V71C79.25 73.188 78.3808 75.2865 76.8336 76.8336C75.2865 78.3808 73.188 79.25 71 79.25H13.25C11.062 79.25 8.96354 78.3808 7.41637 76.8336C5.86919 75.2865 5 73.188 5 71V54.5"
-                  stroke="#919191"
-                  stroke-width="9"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M62.75 25.625L42.125 5L21.5 25.625"
-                  stroke="#919191"
-                  stroke-width="9"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M42.125 5V54.5"
-                  stroke="#919191"
-                  stroke-width="9"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </button>{" "}
-          </div>
+          </div>{" "}
+          {Data.length > 3 && (
+            <span className="Max-Box">
+              Max Photos For Collogue Puzzle has been reached!
+            </span>
+          )}
           <span className="supported-img">
             Support for following image types: JPEG, PNG8, PNG24,
           </span>{" "}
@@ -177,7 +171,9 @@ export default function PuzzleGen() {
           <span className="puzzle-piece-counter">150 Piece Puzzle</span>
         </div>
         <div className="Puzzle-cont">
-          <div className="Puzzle"></div>{" "}
+          <div className="Puzzle">
+            <img src={image} alt="preview image" />
+          </div>{" "}
           <div className="btn-cont">
             <button className="add">
               <svg
@@ -190,23 +186,23 @@ export default function PuzzleGen() {
                 <path
                   d="M6.45452 15.3181C6.83108 15.3181 7.13634 15.0128 7.13634 14.6363C7.13634 14.2597 6.83108 13.9545 6.45452 13.9545C6.07797 13.9545 5.77271 14.2597 5.77271 14.6363C5.77271 15.0128 6.07797 15.3181 6.45452 15.3181Z"
                   stroke="#25B39E"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <path
                   d="M13.9545 15.3181C14.3311 15.3181 14.6363 15.0128 14.6363 14.6363C14.6363 14.2597 14.3311 13.9545 13.9545 13.9545C13.578 13.9545 13.2727 14.2597 13.2727 14.6363C13.2727 15.0128 13.578 15.3181 13.9545 15.3181Z"
                   stroke="#25B39E"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <path
                   d="M1 1H3.72727L5.55455 10.1295C5.61689 10.4435 5.78766 10.7254 6.03696 10.9261C6.28626 11.1268 6.5982 11.2334 6.91818 11.2273H13.5455C13.8654 11.2334 14.1774 11.1268 14.4267 10.9261C14.676 10.7254 14.8467 10.4435 14.9091 10.1295L16 4.40909H4.40909"
                   stroke="#25B39E"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
               Add Puzzle to cart
@@ -224,23 +220,23 @@ export default function PuzzleGen() {
                 <path
                   d="M13.4444 15H2.55556C2.143 15 1.74733 14.8361 1.45561 14.5444C1.16389 14.2527 1 13.857 1 13.4444V2.55556C1 2.143 1.16389 1.74733 1.45561 1.45561C1.74733 1.16389 2.143 1 2.55556 1H11.1111L15 4.88889V13.4444C15 13.857 14.8361 14.2527 14.5444 14.5444C14.2527 14.8361 13.857 15 13.4444 15Z"
                   stroke="#919191"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <path
                   d="M11.8889 15.0001V8.77783H4.11108V15.0001"
                   stroke="#919191"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
                 <path
                   d="M4.11108 1V4.88889H10.3333"
                   stroke="#919191"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
               Save Puzzle{" "}
