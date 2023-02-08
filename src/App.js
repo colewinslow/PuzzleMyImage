@@ -1,19 +1,29 @@
 import "./App.css";
-import Navbar from "./Components/Navigation/Navbar";
+import NavBar from "./Components/Navigation/NavBar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import PuzzleGen from "./Pages/PuzzleGen";
-import PuzzleSaves from "./Pages/PuzzleSaves";
-import PuzzleShop from "./Pages/PuzzleShop";
+import PuzzleGeneratorPage from "./Components/PuzzleGenerator/PuzzleGeneratorPage";
+import HowToPage from "./Components/HowTo/HowToPage";
+import GamePage from "./Components/Game/GamePage";
+
 function App() {
   return (
     <div className="App">
+      {/* Header */}
       <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<PuzzleGen />}></Route>
-          <Route path="/shop/saved" element={<PuzzleSaves />}></Route>
-          <Route path="/shop" element={<PuzzleShop />}></Route>
-        </Routes>
+        <NavBar />
+        <main>
+          <Routes>
+            <Route path="/" element={<PuzzleGeneratorPage />} />
+            <Route path="/docs" element={<HowToPage />} />
+            <Route path="/game" element={<GamePage />} />
+          </Routes>
+        </main>
+        {/* Main */}
+        {/* ++ Puzzle Generator */}
+        {/* ++ How to Use */}
+        {/* ++ Game */}
+        {/* ++ Shop */}
+        {/* Footer */}
       </Router>
     </div>
   );
