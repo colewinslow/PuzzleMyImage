@@ -5,7 +5,7 @@ import Rectangle1 from "./Rectangle1.png";
 import Rectangle2 from "./Rectangle2.png";
 import Rectangle3 from "./Rectangle3.png";
 export default function PuzzleGeneratorPage() {
-  const [Image, setImage] = useState(Rectangle1);
+  const [Image, setImage] = useState();
 
   function onImageChange(e) {
     setImage(URL.createObjectURL(e.target.files[0]));

@@ -4,7 +4,7 @@ function PuzzleEditor({ PuzzleImg, ImgState }) {
   // Square, Circle, Rectangle
   const [PuzzleShape, setPuzzleShape] = useState("square");
   const [PuzzlePieceShape, setPuzzlePieceShape] = useState("Jigsaw");
-  const [ShapeChosen, setShapeChosen] = useState(false);
+
   return (
     <div className="puzzle-editor">
       <div className="puzzle-container">
@@ -26,63 +26,45 @@ function PuzzleEditor({ PuzzleImg, ImgState }) {
         <h2 className="sm-title">Current Puzzle</h2>
         <div className="info-tag-line">
           {PuzzleShape}
-          {ShapeChosen && ` | ${PuzzlePieceShape} Pieces`}
+          {` | ${PuzzlePieceShape} Pieces`}
         </div>
-        {!ShapeChosen ? (
-          <>
-            <div className="shape-selection-box">
-              <button
-                onClick={() => setPuzzleShape((prev) => (prev = "square"))}
-              >
-                Square
-              </button>
-              <button
-                onClick={() => setPuzzleShape((prev) => (prev = "circle"))}
-              >
-                Circle
-              </button>
-              <button
-                onClick={() => setPuzzleShape((prev) => (prev = "rectangle"))}
-              >
-                Rectangle
-              </button>
-            </div>{" "}
-            <button onClick={() => setShapeChosen((prev) => (prev = true))}>
-              Next
-            </button>
-          </>
-        ) : (
-          <>
-            {" "}
-            <div className="shape-selection-box">
-              {" "}
-              <button
-                onClick={() => setPuzzlePieceShape((prev) => (prev = "JigSaw"))}
-              >
-                Traditional JigSaw
-              </button>
-              <button
-                onClick={() =>
-                  setPuzzlePieceShape((prev) => (prev = "Squares"))
-                }
-              >
-                Square Pieces
-              </button>
-              <button
-                onClick={() =>
-                  setPuzzlePieceShape((prev) => (prev = "Geometric"))
-                }
-              >
-                Geometric Shapes
-              </button>{" "}
-            </div>{" "}
-            <button
-              onClick={() => setShapeChosen((prev) => (prev = !ShapeChosen))}
-            >
-              Back
-            </button>
-          </>
-        )}
+        <span className="puzzle-info-title">Puzzle Shape</span>
+        <div className="shape-selection-box">
+          <button onClick={() => setPuzzleShape((prev) => (prev = "square"))}>
+            Square
+          </button>
+          <button onClick={() => setPuzzleShape((prev) => (prev = "circle"))}>
+            Circle
+          </button>
+          <button
+            onClick={() => setPuzzleShape((prev) => (prev = "rectangle"))}
+          >
+            Rectangle
+          </button>
+        </div>
+        <span className="puzzle-info-title">Type of Puzzle Pieces</span>
+        <div className="shape-selection-box">
+          <button
+            onClick={() => setPuzzlePieceShape((prev) => (prev = "JigSaw"))}
+          >
+            Traditional JigSaw
+          </button>
+          <button
+            onClick={() => setPuzzlePieceShape((prev) => (prev = "Squares"))}
+          >
+            Square Pieces
+          </button>
+          <button
+            onClick={() => setPuzzlePieceShape((prev) => (prev = "Geometric"))}
+          >
+            Geometric Shapes
+          </button>
+        </div>{" "}
+        <div>
+          <button>Add To Cart</button>
+          <button>Save Puzzle</button>
+          <button>Play Puzzle Game</button>
+        </div>
       </div>
     </div>
   );

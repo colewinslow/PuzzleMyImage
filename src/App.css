@@ -119,6 +119,7 @@ main {
   color: var(--text);
   font-size: 54px;
   width: 70%;
+  max-width: 800px;
   text-align: center;
 }
 .sm-title {
@@ -322,8 +323,10 @@ input[type="file"] {
   transition: all 0.2s;
 }
 .puzzle-container {
-  width: 60%;
+  height: 500px;
+  width: 500px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -339,22 +342,30 @@ input[type="file"] {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  flex-wrap: wrap;
   width: 100%;
+  border-bottom: 2px solid var(--grey);
   margin-top: 10px;
+  padding-bottom: 14px;
   margin-bottom: 10px;
 }
 .shape-selection-box button {
   border: none;
   padding: 10px;
-  width: 45%;
+  margin-right: 8px;
   cursor: pointer;
-  border-radius: 5px;
-  margin-right: 5px;
-  margin-top: 10px;
+  border-radius: 4px;
+}
+.puzzle-info-title {
+  margin: 0px;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 600;
 }
 .info-tag-line {
   font-size: 12px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: var(--main-blue);
 }
 /* Puzzle Shapes */
 .square {
@@ -364,7 +375,7 @@ input[type="file"] {
   border-radius: 50%;
 }
 .rectangle {
-  max-width: 500px;
+  max-width: 300px;
 }
 .mobile-menu-container {
   width: 20%;
@@ -405,6 +416,9 @@ input[type="file"] {
   .logo {
     margin: 0px;
     margin-left: 24px;
+  }
+  .rectangle {
+    height: 400px;
   }
   .auth-buttons-container {
     display: none;
