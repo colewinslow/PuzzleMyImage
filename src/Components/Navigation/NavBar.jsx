@@ -3,6 +3,7 @@ import AuthButtons from "./AuthButton";
 import CartPreview from "./CartPreview";
 import NavLogo from "./NavLogo";
 import { Link, useLocation } from "react-router-dom";
+import MobileMenuButton from "./MobileMenuButton";
 export default function NavBar() {
   const NavLinks = [
     { id: 1, linkTitle: "Puzzle Generator", to: "/" },
@@ -35,6 +36,7 @@ export default function NavBar() {
         })}
       </div>{" "}
       <CartPreview />
+      <MobileMenuButton />
       <AuthButtons />
     </nav>
   );
