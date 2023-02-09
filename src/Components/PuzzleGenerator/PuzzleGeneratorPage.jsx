@@ -1,18 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PuzzleEditor from "./PuzzleEditor/PuzzleEditor";
-import Rectangle from "./Rectangle.png";
-import Rectangle1 from "./Rectangle1.png";
-import Rectangle2 from "./Rectangle2.png";
-import Rectangle3 from "./Rectangle3.png";
+import Rectangle from "./TestImages/Rectangle.png";
+import Rectangle1 from "./TestImages/Rectangle1.png";
+import Rectangle2 from "./TestImages/Rectangle2.png";
+import Rectangle3 from "./TestImages/Rectangle3.png";
+
 export default function PuzzleGeneratorPage() {
   const [Image, setImage] = useState();
 
   function onImageChange(e) {
     setImage(URL.createObjectURL(e.target.files[0]));
-    console.log(Image);
   }
+  function ScrollToTopOnMount() {
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+
+    return null;
+  }
+
   return (
     <div className="page">
+      <ScrollToTopOnMount />
       {Image ? (
         <PuzzleEditor ImgState={setImage} PuzzleImg={Image} />
       ) : (
@@ -82,21 +91,30 @@ export default function PuzzleGeneratorPage() {
             </div>
           </div>
           <div className="upload-test-images-container">
-            <div className="upload-test-image">
+            <div
+              onClick={() => setImage((prev) => (prev = Rectangle))}
+              className="upload-test-image"
+            >
               <img alt="Leaf" src={Rectangle} />
-            </div>
-            <div className="upload-test-image">
-              <img alt="Family" src={Rectangle3} />
-            </div>
+            </div>{" "}
             <div
               onClick={() => setImage((prev) => (prev = Rectangle1))}
               className="upload-test-image"
             >
               <img alt="Dog" src={Rectangle1} />
-            </div>
-            <div className="upload-test-image">
-              <img alt="Hot Air" src={Rectangle2} />
-            </div>
+            </div>{" "}
+            <div
+              onClick={() => setImage((prev) => (prev = Rectangle3))}
+              className="upload-test-image"
+            >
+              <img alt="Dog" src={Rectangle3} />
+            </div>{" "}
+            <div
+              className="upload-test-image"
+              onClick={() => setImage((prev) => (prev = Rectangle2))}
+            >
+              <img alt="Family" src={Rectangle2} />
+            </div>{" "}
             <div className="upload-test-image disabled">
               <svg
                 viewBox="0 0 143 166"
