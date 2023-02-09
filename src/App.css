@@ -149,7 +149,7 @@ main {
 }
 /* Puzzle Gen Page */
 .upload-box {
-  width: 90vw;
+  width: 90%;
   margin: 20px;
   max-width: 365px;
   border-radius: 10px;
@@ -175,7 +175,6 @@ input[type="file"] {
 .upload-info {
   border-radius: 10px;
   border: 5px dashed #f3f3f3;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -241,6 +240,9 @@ input[type="file"] {
   justify-content: space-evenly;
   align-items: center;
   margin-top: 40px;
+  width: 90%;
+
+  max-width: 1000px;
   margin-bottom: 30px;
 }
 .upload-test-image {
@@ -268,12 +270,11 @@ input[type="file"] {
 .disabled {
   position: relative;
   opacity: 40%;
+  padding: 5px;
   overflow: visible;
+  background: black;
 }
-.disabled svg {
-  width: 100px;
-  height: 120px;
-}
+
 .coming-soon {
   text-align: center;
   width: 100%;
@@ -310,6 +311,7 @@ input[type="file"] {
   right: 30px;
   top: 20px;
   background: var(--grey);
+  font-weight: 600;
   height: 35px;
   width: 35px;
   border-radius: 50%;
@@ -404,9 +406,13 @@ input[type="file"] {
   width: 30px;
   height: 30px;
 }
+
 @media only screen and (max-width: 1000px) {
   .title {
     font-size: 25px;
+  }
+  .upload-box {
+    width: 60%;
   }
   .mobile-menu-container {
     display: flex;
@@ -423,6 +429,10 @@ input[type="file"] {
   }
   .upload-test-image {
     margin: 20px;
+  }
+  .disabled {
+    width: 70%;
+    margin-top: 50px;
   }
   .drop-file-text {
     display: none;
@@ -441,7 +451,8 @@ input[type="file"] {
     display: none;
   }
   .puzzle-container {
-    width: 100%;
+    width: 280px;
+    height: 480px;
   }
   .puzzle-info-container {
     padding: 0px;
@@ -452,5 +463,17 @@ input[type="file"] {
     align-items: center;
     justify-content: center;
     flex-direction: column-reverse;
+  }
+  /* Puzzle Shapes */
+  .Square {
+    width: 280px;
+    height: 280px;
+  }
+  .Circle {
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+  }
+  .Rectangle {
   }
 }
