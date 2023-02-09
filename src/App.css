@@ -395,6 +395,12 @@ input[type="file"] {
 }
 .puzzle-map-container {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 280px;
+  height: 280px;
 }
 .mobile-menu-container {
   width: 20%;
@@ -406,13 +412,16 @@ input[type="file"] {
   width: 30px;
   height: 30px;
 }
-
+.test {
+  background: #fff8f810;
+  outline: 0.2px solid rgba(128, 128, 128, 0.129);
+}
 @media only screen and (max-width: 1000px) {
   .title {
     font-size: 25px;
   }
   .upload-box {
-    width: 60%;
+    width: 85%;
   }
   .mobile-menu-container {
     display: flex;
