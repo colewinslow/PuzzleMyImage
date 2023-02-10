@@ -7,30 +7,22 @@ function PuzzleEditor({ PuzzleImg, ImgState }) {
   const [PuzzleShape, setPuzzleShape] = useState("Square");
   const [PuzzlePieceShape, setPuzzlePieceShape] = useState("Squares");
   const [PieceAmount, setPieceAmount] = useState("100");
-  const [WidthOfImg, setWidthOfImg] = useState("300");
-  const [HeightOfImg, setHeightOfImg] = useState("300");
+
   function onPieceChange(e) {
     console.log(e.target.value);
     setPieceAmount((prev) => (prev = e.target.value));
   }
+
   return (
     <div className="puzzle-editor">
       <div className="puzzle-container">
-        <div className={`${PuzzleShape} editor-puzzle-container`}>
-          <img
-            className="editor-puzzle"
-            alt="Personal Puzzle"
-            src={PuzzleImg}
-          />
-          {PuzzlePieceShape === "Squares" && (
-            <SquarePuzzleMap
-              shape={PuzzleShape}
-              DimensionsWidth={WidthOfImg}
-              DimensionsHeight={HeightOfImg}
-              size={PieceAmount}
-            />
-          )}
-        </div>
+        <SquarePuzzleMap shape={PuzzleShape} size={PieceAmount} />
+        <img
+          className={`${PuzzleShape} editor-puzzle-img`}
+          alt="Personal Puzzle"
+          src={PuzzleImg}
+        />
+
         <div className="mobile">
           <ActionBtns />
         </div>

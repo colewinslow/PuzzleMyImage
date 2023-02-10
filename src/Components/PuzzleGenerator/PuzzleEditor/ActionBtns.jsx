@@ -2,7 +2,7 @@ import React from "react";
 
 function ActionBtns() {
   return (
-    <>
+    <div style={{ width: "60%" }}>
       <button className="add-to-cart-btn">
         <svg
           className="cart-svg-add"
@@ -37,7 +37,7 @@ function ActionBtns() {
       <div className="btn-box-bottom">
         <button className="play-btn">Play Puzzle Game</button>{" "}
       </div>
-    </>
+    </div>
   );
 }
 

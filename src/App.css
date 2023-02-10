@@ -373,6 +373,7 @@ input[type="file"] {
   padding-left: 40px;
   border-left: 2px solid var(--grey);
 }
+
 .remove-photo-btn {
   display: flex;
   justify-content: center;
@@ -408,6 +409,7 @@ input[type="file"] {
   justify-content: center;
   align-items: center;
   object-fit: cover;
+  position: relative;
 }
 .shape-selection-box {
   display: flex;
@@ -448,6 +450,7 @@ input[type="file"] {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .mobile {
@@ -458,37 +461,42 @@ input[type="file"] {
 }
 /* Puzzle Shapes */
 .Square {
-  width: 60vw;
-  height: 60vw;
-  max-width: 300px;
-  max-height: 300px;
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
 }
 .Circle {
-  width: 60vw;
-  height: 60vw;
-  max-width: 300px;
-  max-height: 300px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
 }
 .Rectangle {
-  width: 55vw;
-  height: 55vw;
-  max-width: 350px;
-  max-height: 200px;
+  width: 400px;
+  height: 200px;
 }
+
 .selected-btn {
   color: white;
   background: var(--main-blue);
 }
 .puzzle-map-container {
   position: absolute;
+  top: 10%;
   display: flex;
   justify-content: center;
-  align-items: center;
-
-  outline: 2px solid #80808019;
+  overflow: hidden;
+  z-index: 2;
+  outline: 1px solid #80808019;
 }
-
+.editor-puzzle-img {
+  position: absolute;
+  object-fit: cover;
+  top: 10%;
+  display: flex;
+  justify-content: center;
+  z-index: 0;
+  outline: 1px solid #80808019;
+}
 .mobile-menu-container {
   width: 20%;
   display: none;
@@ -538,8 +546,11 @@ input[type="file"] {
     display: none;
   }
   .mobile {
+    position: absolute;
+    bottom: 0px;
     display: flex;
     flex-direction: column;
+    margin-top: 50px;
   }
   .nav-link {
     display: none;
@@ -548,16 +559,10 @@ input[type="file"] {
     margin: 0px;
     margin-left: 24px;
   }
-  .rectangle {
-    height: 400px;
-  }
   .auth-buttons-container {
     display: none;
   }
-  .puzzle-container {
-    height: 480px;
-    width: auto;
-  }
+
   .puzzle-info-container {
     padding: 0px;
     width: 100%;

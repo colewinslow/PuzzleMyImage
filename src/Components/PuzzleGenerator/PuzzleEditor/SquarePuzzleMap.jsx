@@ -1,23 +1,18 @@
 import React, { useEffect, useState } from "react";
 
-export default function SquarePuzzleMap({
-  size,
-  shape,
-  DimensionsWidth,
-  DimensionsHeight,
-}) {
+export default function SquarePuzzleMap({ size, shape }) {
   const [pieces, setPieces] = useState([]);
+  const [WidthOfImg, setWidthOfImg] = useState(300);
+  const [HeightOfImg, setHeightOfImg] = useState(300);
   // Dimensions Square, circle rectangle
-  let width = DimensionsWidth;
-  let height = DimensionsHeight;
 
   useEffect(() => {
-    const pieceSize = Math.sqrt((height * width) / size);
+    const pieceSize = Math.sqrt((HeightOfImg * WidthOfImg) / size);
     const pieces = [];
 
     for (let i = 0; i < size; i++) {
-      const x = (i * pieceSize) % width;
-      const y = Math.floor((i * pieceSize) / width) * pieceSize;
+      const x = (i * pieceSize) % WidthOfImg;
+      const y = Math.floor((i * pieceSize) / WidthOfImg) * pieceSize;
 
       pieces.push({
         x,
@@ -39,7 +34,6 @@ export default function SquarePuzzleMap({
         flexWrap: "wrap",
       }}
     >
-      {" "}
       {pieces.map((piece, index) => (
         <div className="piece" key={index} style={piece} />
       ))}
