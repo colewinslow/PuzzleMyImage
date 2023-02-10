@@ -86,11 +86,10 @@ main {
 }
 .mobile-menu-link-container {
   position: absolute;
-  top: 90px;
+  top: 84px;
   left: 40vw;
   width: 60vw;
   height: 100vh;
-  z-index: 0;
 
   background: white;
   border-left: 2px solid var(--grey);
@@ -472,8 +471,8 @@ input[type="file"] {
   position: absolute;
   top: 20%;
   display: flex;
-  justify-content: center;
-  z-index: 2;
+  flex-wrap: wrap;
+  transition: all 0.5s;
 }
 .editor-puzzle-img {
   position: absolute;
@@ -483,10 +482,9 @@ input[type="file"] {
   overflow: hidden;
   transition: all 0.5s;
   justify-content: center;
-  z-index: 0;
-  outline: 1px solid #80808019;
 }
 .mobile-menu-container {
+  background-color: white;
   width: 20%;
   display: none;
   align-items: center;
@@ -497,7 +495,7 @@ input[type="file"] {
   height: 30px;
 }
 .piece {
-  outline: 0.3px solid #80808048;
+  outline: 1px solid #80808048;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -516,6 +514,7 @@ input[type="file"] {
   .mobile-menu-container {
     display: flex;
   }
+
   .upload-cmd-instruction {
     display: none;
   }

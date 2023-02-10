@@ -27,13 +27,7 @@ export default function SquarePuzzleMap({ size, shape, height, width }) {
   }, [size]);
 
   return (
-    <div
-      className={`${shape} puzzle-map-container`}
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-      }}
-    >
+    <div className={`${shape} puzzle-map-container`}>
       {pieces.map((piece, index) => (
         <div className="piece" key={index} style={piece} />
       ))}

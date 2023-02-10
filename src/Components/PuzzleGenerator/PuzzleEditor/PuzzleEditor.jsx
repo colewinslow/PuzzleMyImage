@@ -16,18 +16,17 @@ function PuzzleEditor({ PuzzleImg, ImgState }) {
   return (
     <div className="puzzle-editor">
       <div className="puzzle-container">
+        <img
+          className={`${PuzzleShape} editor-puzzle-img`}
+          alt="Personal Puzzle"
+          src={PuzzleImg}
+        />
         <SquarePuzzleMap
           height={PuzzleShape === "Rectangle" ? 200 : 300}
           width={PuzzleShape === "Rectangle" ? 400 : 300}
           shape={PuzzleShape}
           size={PieceAmount}
         />
-        <img
-          className={`${PuzzleShape} editor-puzzle-img`}
-          alt="Personal Puzzle"
-          src={PuzzleImg}
-        />
-
         <div className="mobile">
           <ActionBtns />
         </div>
@@ -78,12 +77,6 @@ function PuzzleEditor({ PuzzleImg, ImgState }) {
             onClick={() => setPuzzlePieceShape((prev) => (prev = "Squares"))}
           >
             Square Pieces
-          </button>
-          <button
-            className={`${PuzzlePieceShape === "Geometric" && "selected-btn"}`}
-            onClick={() => setPuzzlePieceShape((prev) => (prev = "Geometric"))}
-          >
-            Geometric Shapes
           </button>
         </div>{" "}
         <span className="puzzle-info-title">Amount of Pieces</span>
