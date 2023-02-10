@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-export default function SquarePuzzleMap({ size, shape }) {
+export default function SquarePuzzleMap({ size, shape, height, width }) {
   const [pieces, setPieces] = useState([]);
-  const [WidthOfImg, setWidthOfImg] = useState(300);
-  const [HeightOfImg, setHeightOfImg] = useState(300);
+  const [WidthOfImg] = useState(width);
+  const [HeightOfImg] = useState(height);
   // Dimensions Square, circle rectangle
-
+  console.log(width, height);
   useEffect(() => {
     const pieceSize = Math.sqrt((HeightOfImg * WidthOfImg) / size);
     const pieces = [];

@@ -2,7 +2,7 @@ import React from "react";
 
 function ActionBtns() {
   return (
-    <div style={{ width: "60%" }}>
+    <div style={{ width: "100%" }}>
       <button className="add-to-cart-btn">
         <svg
           className="cart-svg-add"

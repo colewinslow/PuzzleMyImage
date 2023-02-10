@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ActionBtns from "./ActionBtns";
 import SquarePuzzleMap from "./SquarePuzzleMap";
 
@@ -16,7 +16,12 @@ function PuzzleEditor({ PuzzleImg, ImgState }) {
   return (
     <div className="puzzle-editor">
       <div className="puzzle-container">
-        <SquarePuzzleMap shape={PuzzleShape} size={PieceAmount} />
+        <SquarePuzzleMap
+          height={PuzzleShape === "Rectangle" ? 200 : 300}
+          width={PuzzleShape === "Rectangle" ? 400 : 300}
+          shape={PuzzleShape}
+          size={PieceAmount}
+        />
         <img
           className={`${PuzzleShape} editor-puzzle-img`}
           alt="Personal Puzzle"
@@ -36,8 +41,8 @@ function PuzzleEditor({ PuzzleImg, ImgState }) {
       <div className="puzzle-info-container">
         <h2 className="sm-title">Current Puzzle</h2>
         <div className="info-tag-line">
-          {PuzzleShape}
-          {` | ${PuzzlePieceShape} Pieces`}
+          {PuzzleShape} Shaped
+          {` | ${PieceAmount} | ${PuzzlePieceShape} pieces`}
         </div>
         <span className="puzzle-info-title">Puzzle Shape</span>
         <div className="shape-selection-box">

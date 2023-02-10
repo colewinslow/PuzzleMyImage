@@ -389,20 +389,6 @@ input[type="file"] {
   border-radius: 50%;
   position: absolute;
 }
-.editor-puzzle-container {
-  border-radius: 10px;
-  background: white;
-  margin: 20px;
-  box-shadow: 0 0 40px #00000020;
-  width: 95%;
-  overflow: hidden;
-  height: 400px;
-  max-width: 400px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  transition: all 0.2s;
-}
 
 .editor-puzzle img {
   display: flex;
@@ -464,13 +450,16 @@ input[type="file"] {
   width: 300px;
   height: 300px;
   border-radius: 10px;
+  overflow: hidden;
 }
 .Circle {
   width: 300px;
   height: 300px;
   border-radius: 50%;
+  overflow: hidden;
 }
 .Rectangle {
+  overflow: hidden;
   width: 400px;
   height: 200px;
 }
@@ -481,18 +470,18 @@ input[type="file"] {
 }
 .puzzle-map-container {
   position: absolute;
-  top: 10%;
+  top: 20%;
   display: flex;
   justify-content: center;
-  overflow: hidden;
   z-index: 2;
-  outline: 1px solid #80808019;
 }
 .editor-puzzle-img {
   position: absolute;
   object-fit: cover;
-  top: 10%;
+  top: 20%;
   display: flex;
+  overflow: hidden;
+  transition: all 0.5s;
   justify-content: center;
   z-index: 0;
   outline: 1px solid #80808019;
@@ -508,8 +497,7 @@ input[type="file"] {
   height: 30px;
 }
 .piece {
-  background: #fff8f810;
-  outline: 1px solid #80808048;
+  outline: 0.3px solid #80808048;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -519,6 +507,12 @@ input[type="file"] {
   .upload-box {
     width: 85%;
   }
+  .Rectangle {
+    margin-top: 20px;
+    width: 350px;
+    height: 200px;
+  }
+
   .mobile-menu-container {
     display: flex;
   }
@@ -535,6 +529,15 @@ input[type="file"] {
   .upload-test-image {
     margin: 20px;
   }
+  .puzzle-container {
+    width: 90%;
+  }
+  .puzzle-map-container {
+    top: 6%;
+  }
+  .editor-puzzle-img {
+    top: 6%;
+  }
   .disabled {
     width: 80%;
     margin-top: 50px;
@@ -548,9 +551,9 @@ input[type="file"] {
   .mobile {
     position: absolute;
     bottom: 0px;
+
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
   }
   .nav-link {
     display: none;
@@ -573,6 +576,7 @@ input[type="file"] {
   .puzzle-editor {
     align-items: center;
     justify-content: center;
+    height: 900px;
     flex-direction: column-reverse;
   }
   /* Puzzle Shapes */
