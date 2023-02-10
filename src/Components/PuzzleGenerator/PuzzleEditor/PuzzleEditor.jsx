@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ActionBtns from "./ActionBtns";
 import SquarePuzzleMap from "./SquarePuzzleMap";
 
@@ -7,7 +7,8 @@ function PuzzleEditor({ PuzzleImg, ImgState }) {
   const [PuzzleShape, setPuzzleShape] = useState("Square");
   const [PuzzlePieceShape, setPuzzlePieceShape] = useState("Squares");
   const [PieceAmount, setPieceAmount] = useState("100");
-
+  const [WidthOfImg, setWidthOfImg] = useState("300");
+  const [HeightOfImg, setHeightOfImg] = useState("300");
   function onPieceChange(e) {
     console.log(e.target.value);
     setPieceAmount((prev) => (prev = e.target.value));
@@ -24,8 +25,8 @@ function PuzzleEditor({ PuzzleImg, ImgState }) {
           {PuzzlePieceShape === "Squares" && (
             <SquarePuzzleMap
               shape={PuzzleShape}
-              DimensionsWidth={300}
-              DimensionsHeight={300}
+              DimensionsWidth={WidthOfImg}
+              DimensionsHeight={HeightOfImg}
               size={PieceAmount}
             />
           )}

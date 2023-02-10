@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 export default function SquarePuzzleMap({
   size,
-
+  shape,
   DimensionsWidth,
   DimensionsHeight,
 }) {
@@ -33,12 +33,10 @@ export default function SquarePuzzleMap({
 
   return (
     <div
-      className="puzzle-map-container"
+      className={`${shape} puzzle-map-container`}
       style={{
         display: "flex",
         flexWrap: "wrap",
-        width: width,
-        height: height,
       }}
     >
       {" "}
