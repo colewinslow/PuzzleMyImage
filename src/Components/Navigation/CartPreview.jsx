@@ -5,9 +5,9 @@ export default function CartPreview() {
   return (
     <div className="cart-preview-container">
       <Link to="/cart">
-        <div className="cart-preview-number">
+        {/* <div className="cart-preview-number">
           <span>{NumberInCart}</span>
-        </div>
+        </div> */}
         <div className="cart-preview-circle">
           <svg
             className="cart-svg"
