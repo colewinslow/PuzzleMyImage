@@ -63,7 +63,7 @@ main {
   cursor: pointer;
 }
 .mobile-nav-link {
-  width: 50vw;
+  width: 80%;
   color: var(--dark-grey);
   text-decoration: none;
   display: flex;
